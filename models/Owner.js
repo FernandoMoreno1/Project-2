@@ -2,16 +2,16 @@ const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
-// User model
-class User extends Model {
-    // set up method to run on instance data (per user) to check password
+// Owner model
+class Owner extends Model {
+    // set up method to run on instance data (per Owner) to check password
     checkPassword(loginPw) {
         return bcrypt.compareSync(loginPw, this.password);
     }
 }
 
-// create fields/columns for User model
-User.init(
+// create fields/columns for Owner model
+Owner.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -70,27 +70,27 @@ User.init(
         is_owner: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
-            defaultValue: false
+            defaultValue: true
         }
     },
     {
         hooks: {
         // set up beforeCreate lifecycle "hook" functionality
-        async beforeCreate(newUserData) {
-            newUserData.password = await bcrypt.hash(newUserData.password, 10);
-            return newUserData;
+        async beforeCreate(newOwnerData) {
+            newOwnerData.password = await bcrypt.hash(newOwnerData.password, 10);
+            return newOwnerData;
         },
 
-        async beforeUpdate(updatedUserData) {
-            updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-            return updatedUserData;
+        async beforeUpdate(updatedOwnerData) {
+            updatedOwnerData.password = await bcrypt.hash(updatedOwnerData.password, 10);
+            return updatedOwnerData;
         }
         },
         sequelize,
         timestamps: false,
         underscored: true,
-        modelName: 'user'
+        modelName: 'owner'
     }
 );
 
-module.exports = User;
+module.exports = Owner;
