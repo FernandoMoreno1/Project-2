@@ -66,6 +66,11 @@ User.init(
             validate: {
                 isAlphanumeric: true
             }
+        },
+        is_owner: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: true
         }
     },
     {
