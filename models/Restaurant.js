@@ -27,13 +27,15 @@ Restaurant.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        id: {
+        owner_id: {
+            type: DataTypes.INTEGER,
             references: {
                 model: 'owner',
                 key: 'id'
             }
         },
         menu_id: {
+            type: DataTypes.INTEGER,
             references: {
                 model: 'menu',
                 key: 'id'
@@ -42,6 +44,7 @@ Restaurant.init(
     },
     {
         sequelize,
+        freezeTableName: true,
         timestamps: false,
         underscored: true,
         modelName: 'restaurant'

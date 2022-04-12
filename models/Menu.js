@@ -12,17 +12,11 @@ Menu.init(
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
-        },
-        restaurant_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'restaurant',
-                key: 'id'
-            }
         }
     },
     {
         sequelize,
+        freezeTableName: true,
         timestamps: false,
         underscored: true,
         modelName: 'menu'

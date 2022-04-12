@@ -65,14 +65,6 @@ Owner.init(
             validate: {
                 isAlphanumeric: true
             }
-        },
-        restaurant_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'restaurant',
-                key: 'id'
-            }
         }
     },
     {
@@ -89,6 +81,7 @@ Owner.init(
         }
         },
         sequelize,
+        freezeTableName: true,
         timestamps: false,
         underscored: true,
         modelName: 'owner'
