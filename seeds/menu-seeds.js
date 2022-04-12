@@ -3,7 +3,7 @@ const { Menu } = require('../models');
 
 const menudata = [
     {
-        restaurantid: 1
+        restaurant_id: 1
     }
 ];
 

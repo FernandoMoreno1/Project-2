@@ -33,13 +33,6 @@ Restaurant.init(
                 model: 'owner',
                 key: 'id'
             }
-        },
-        menu_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'menu',
-                key: 'id'
-            }
         }
     },
     {

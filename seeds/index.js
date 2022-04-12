@@ -14,10 +14,10 @@ const seedAll = async () => {
   await seedOwners();
 
   console.log('--------------');
-  await seedMenus();
+  await seedRestaurants();
 
   console.log('--------------');
-  await seedRestaurants();
+  await seedMenus();
 
   process.exit(0);
 };
