@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User, Menu, Cart} = require('../../models');
 
-// get users
+// middleware to get users
 router.get('/', (req, res) => {
     User.findAll({
       attributes: { exclude: ['password'] }
