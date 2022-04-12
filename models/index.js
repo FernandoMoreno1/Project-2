@@ -1,10 +1,10 @@
 // import all models
 const User = require('./User');
-const Owner = require('./Owner');
+const Menu = require('./Menu');
 
 // create associations
 
 module.exports = {
     User,
-    Owner
+    Menu
 };
