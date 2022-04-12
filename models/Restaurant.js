@@ -27,9 +27,9 @@ Restaurant.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        owner_id: {
+        id: {
             references: {
-                model: 'user',
+                model: 'owner',
                 key: 'id'
             }
         },
@@ -46,4 +46,6 @@ Restaurant.init(
         underscored: true,
         modelName: 'restaurant'
     }
-)
+);
+
+module.exports = Restaurant;
