@@ -1,6 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-//este archivo no existe aun
-const sequelize = require('../connection/database');
+const sequelize = require('../config/connection');
 
 class Product extends Model {}
 
@@ -24,7 +23,15 @@ Product.init(
         type: DataTypes.STRING,
         allowNull: false
     },
-    image:{
+    id_restuarant:{
+      type: DataTypes.INTEGER,
+        references: {
+            model: 'restaurant',
+            key: 'id'
+        },
+        allowNull: true
+    },
+    id_image:{
         type: DataTypes.INTEGER,
         references: {
             model: 'image',

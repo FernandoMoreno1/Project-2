@@ -1,33 +1,59 @@
-// import all models
-const Category = require('./category');
-const User = require('./user');
-const Image = require('./image');
-const Order = require('./order');
-const Product = require('./product');
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
-// create associations
-User.hasMany(Order, {
-  foreignKey: 'id_user'
-});
+class Restaurant extends Model {}
 
-Order.belongsTo(User, {
-  foreignKey: 'id_user',
-  onDelete: 'SET NULL'
-});
+Restaurant.init(
+    {
+        id:{
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                isAlpha: true
+            }
+        },
+        address: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                isAlpha: true
+            }
+        },
+        phone_number: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        open_at:{
+            type: DataTypes.TIME,
+            allowNull: false
+        },
+        close_at:{
+            type: DataTypes.TIME,
+            allowNull: false
+        },
+        id_image:{
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'image',
+                key: 'id'
+            },
+            allowNull: true
+        }
+    },
+    {
+      sequelize,
+      timestamps: false,
+      freezeTableName: true,
+      underscored: true,
+      modelName: 'product'
+    }
+);
 
-Category.belongsTo(Product, {
-  foreignKey: 'id_category',
-  onDelete: 'SET NULL'
-});
 
-Image.belongsTo(Product, {
-  foreignKey: 'id_image',
-  onDelete: 'SET NULL'
-});
-
-Image.hasMany(User, {
-  foreignKey: 'id_image',
-  onDelete: 'SET NULL'
-});
-
-module.exports = { Category, User, Image, Order, Product };
+module.exports = Restaurant;

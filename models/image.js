@@ -1,6 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-//este archivo no existe aun
-const sequelize = require('../connection/database');
+const sequelize = require('../config/connection');
 
 class Image extends Model {}
 

@@ -1,6 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-//este archivo no existe aun
-const sequelize = require('../connection/database');
+const sequelize = require('../config/connection');
 
 class Order extends Model {}
 
@@ -18,7 +17,15 @@ Order.init(
             model: 'user',
             key: 'id'
         },
-        allowNull: true
+        allowNull: false
+    },
+    id_restaurant:{
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'restaurant',
+            key: 'id'
+        },
+        allowNull: false
     },
     total:{
         type: DataTypes.DECIMAL,
@@ -33,14 +40,14 @@ Order.init(
           quantity: { type: Number, default: 1 },
           total: { type: DataTypes.DECIMAL, default: 0 },
         },
-      ],
+    ],
     state:{
         type: DataTypes.ENUM('delivey','on way','process'),
         defaultValue: "process"
     },
     finished:{
         type: DataTypes.BOOLEAN,
-        defaultValue:true,
+        defaultValue:false,
         allowNull: false
     }
   },
