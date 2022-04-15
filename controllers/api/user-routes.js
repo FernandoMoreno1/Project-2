@@ -1,6 +1,6 @@
 const router =require('express').Router();
 
-const { User } = require('../../models');
+const { Menu, MenuProdut, Owner, Product, Restaurant, User } = require('../../models');
 
 //get all users
 router.get('/',(req,res)=>{
