@@ -1,5 +1,5 @@
 const router =require('express').Router();
-const { Post } = require('../../../14.5.mvc/models');
+
 const { User } = require('../../models');
 
 //get all users
