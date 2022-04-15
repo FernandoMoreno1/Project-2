@@ -27,6 +27,14 @@ Restaurant.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        open_at:{
+            type: DataTypes.TIME,
+            allowNull: false
+        },
+        close_at:{
+            type: DataTypes.TIME,
+            allowNull: false
+        },
         owner_id: {
             type: DataTypes.INTEGER,
             references: {
