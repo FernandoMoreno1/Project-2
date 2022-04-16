@@ -1,21 +1,19 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { User } = require('../models');
+const { Menu } = require('../models');
 
-// get homepage
+// get menu
 router.get('/', (req, res) => {
     console.log('======================');
-    User.findAll({
+    Menu.findAll({
     attributes: [
         'id',
-        'first_name',
-        'last_name',
     ],
     })
-    .then(dbPostData => {
-        const users = dbPostData.map(user => user.get({ plain: true }));
+    .then(menuData => {
+        const menus = menuData.map(menu => menu.get({ plain: true }));
 
-        res.render('homepage', { users });
+        res.render('menu', { menus });
     })
     .catch(err => {
         console.log(err);
