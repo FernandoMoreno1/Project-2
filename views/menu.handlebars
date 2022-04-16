@@ -1,42 +1,14 @@
 <h1><i class="fa fa-shopping-cart"></i></h1>
 <section>
+    {{#each items}}
     <div class="item">
-        <img src="{{image_id}}">
-        <p> {{description }}</p>
+        <h5> {{name}}</h5>
         <h6> {{price}}</h6>
+        <p> {{description}}</p>
         <span></span>
         <button>Add-cart</button>
     </div>
-    <div class="item">
-        <img src="{{image_id}}">
-        <p> {{description }}</p>
-        <h6> {{price}}</h6>
-        <span></span>
-        <button>Add-cart</button>
-    </div>
-
-    <div class="item">
-        <img src="{{image_id}}">
-        <p> {{description }}</p>
-        <h6> {{price}}</h6>
-        <span></span>
-        <button>Add-cart</button>
-    </div>
-
-    <div class="item">
-        <img src="{{image_id}}">
-        <p> {{description }}</p>
-        <h6> {{price}}</h6>
-        <span></span>
-        <button>Add-cart</button>
-    </div>
-    <div class="item">
-        <img src="{{image_id}}">
-        <p> {{description }}</p>
-        <h6> {{price}}</h6>
-        <span></span>
-        <button>Add-cart</button>
-    </div>
+    {{/each}}
 </section>
 
 {{!-- this is where the items from the cart will show up --}}

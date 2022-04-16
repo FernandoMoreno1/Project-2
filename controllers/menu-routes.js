@@ -1,19 +1,32 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Menu } = require('../models');
+const { Menu, MenuProduct, Product } = require('../models');
 
 // get menu
-router.get('/', (req, res) => {
+router.get('/:id', (req, res) => {
     console.log('======================');
-    Menu.findAll({
-    attributes: [
-        'id',
-    ],
+    Menu.findOne({
+        where: {
+            id: req.params.id
+        },
+        include: [
+            {
+                model: Product,
+                through: MenuProduct,
+                as: 'product_menu'
+            }
+        ]
     })
     .then(menuData => {
-        const menus = menuData.map(menu => menu.get({ plain: true }));
+        if (!menuData) {
+            res.status(404).json({ message: 'No menu found with this id' });
+            return;
+        }
+        const items = menuData.get('product_menu', { plain: true});
 
-        res.render('menu', { menus });
+        res.render('menu', {
+            items
+        });
     })
     .catch(err => {
         console.log(err);
