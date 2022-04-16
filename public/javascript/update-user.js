@@ -3,9 +3,10 @@ async function updateFormHandler(event) {
 
     const address = document.querySelector('#address-update').value.trim();
     const phone_number = document.querySelector('#phone-update').value.trim();
+    const id = document.querySelector('.user-update-form').id.slice(4);
 
     if (address && phone_number) {
-        const response = await fetch('/api/users', {
+        const response = await fetch('/api/users/' + id, {
             method: 'put',
             body: JSON.stringify({
                 phone_number,

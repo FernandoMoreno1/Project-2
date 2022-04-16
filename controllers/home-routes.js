@@ -50,7 +50,10 @@ router.get('/update-user', (req, res) => {
         return;
     }
 
-    res.render('update-user');
+    res.render('update-user', {
+        loggedIn: req.session.loggedIn,
+        id: req.session.user_id
+    });
 });
 
 module.exports = router;
