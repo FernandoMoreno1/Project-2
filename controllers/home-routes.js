@@ -44,4 +44,13 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
+router.get('/update-user', (req, res) => {
+    if (!req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+
+    res.render('update-user');
+});
+
 module.exports = router;
