@@ -19,7 +19,8 @@ router.get('/', (req, res) => {
         const restaurants = restaurantData.map(restaurant => restaurant.get({ plain: true}));
 
         res.render('restaurants', {
-            restaurants
+            restaurants,
+            loggedIn: req.session.loggedIn
         });
     })
     .catch(err => {

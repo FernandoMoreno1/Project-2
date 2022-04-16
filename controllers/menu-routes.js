@@ -25,7 +25,8 @@ router.get('/:id', (req, res) => {
         const items = menuData.get('product_menu', { plain: true});
 
         res.render('menu', {
-            items
+            items,
+            loggedIn: req.session.loggedIn
         });
     })
     .catch(err => {
