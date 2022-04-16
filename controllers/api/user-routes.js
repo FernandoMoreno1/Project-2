@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Menu } = require('../../models');
 
 // get all users
 router.get('/', (req, res) => {
-    User.findAll({
-        attributes: { exclude: ['password'] }
+    Menu.findAll({
+        attributes: { restaurants }
     })
     .then(dbUserData => res.json(dbUserData))
     .catch(err => {
@@ -12,5 +12,7 @@ router.get('/', (req, res) => {
         res.status(500).json(err);
     });
 });
+
+router.get()
 
 module.exports = router;
