@@ -12,22 +12,29 @@
   <div class="wrapper">
     <header>
       <h1>
-          <a href="/">Upscale Delivery</a>
+        Upscale Delivery
       </h1>
       <nav>
+        <a href="/">Home</a>
+        <a href="/dashboard">Menu</a>
+        <a href="/cart">🛒 </a>
         {{#if loggedIn}}
-        <button id="logout" class="btn-no-style">Logout</button>
+        <button id="logout" class="btn-no-style">logout</button>
         {{else}}
-        <a href="/login">Login</a>
+        <a href="/login">login</a>
         {{/if}}
       </nav>
     </header>
     <main>
-        {{{ body }}}
+      {{{ body }}}
     </main>
-    <footer>
-        Thanks for visiting!
-    </footer>
+  <footer>
+    <div>
+      © 2022 Upscale-Delivery All rights reserved.
+    </div>
+    <div>Terms of Use</div>
+    <div>Privacy Policy</div>
+  </footer>
   </div>
 
   {{#if loggedIn}}
