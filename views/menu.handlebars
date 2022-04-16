@@ -1,13 +1,7 @@
 <h1><i class="fa fa-shopping-cart"></i></h1>
 <section>
-    {{#each items}}
-    <div class="item">
-        <h5> {{name}}</h5>
-        <h6> {{price}}</h6>
-        <p> {{description}}</p>
-        <span></span>
-        <button>Add-cart</button>
-    </div>
+    {{#each items as |item|}}
+    {{> menu-item item}}
     {{/each}}
 </section>
 
