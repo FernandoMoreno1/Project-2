@@ -62,10 +62,7 @@ User.init(
         },
         address: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                isAlphanumeric: true
-            }
+            allowNull: false
         }
     },
     {
