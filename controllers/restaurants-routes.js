@@ -64,7 +64,6 @@ router.get('/admin', (req,res) => {
     })
     .then(ownerData => {
         const ownerDB = ownerData.map(owner => owner.get({ plain: true}));
-        console.log(ownerDB);
         
         res.render('admin', {
             ownerDB,

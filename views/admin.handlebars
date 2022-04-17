@@ -1,1 +1,10 @@
-<p>Admin</p>
+<div class="restaurants-container">
+    <h3>Your Restaurants</h3>
+    {{#each ownerDB as |owner|}}
+        {{#with owner.restaurants as |restaurants|}}
+        {{#each restaurants as |restaurant|}}
+            {{> restaurant restaurant}}
+        {{/each}}
+        {{/with}}
+    {{/each}}
+</div>
