@@ -161,7 +161,7 @@ body {
     font-size: 15px;
 }
 
-.item button {
+.item button, #cart button {
     padding: 5px;
     background: red;
     border: none;

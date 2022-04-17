@@ -1,24 +1,23 @@
-var cart = document.querySelector('h1');
-var select = document.querySelector('.select');
-var button = document.getElementsByTagName('button');
+document.querySelector('section').addEventListener('click', element => {
+    const productId = element.target.id;
+    console.log(productId);
+    if (productId.search('product') > -1) {
+        newDiv = document.createElement('div');
+        newDiv.classList.add('cartItem');
 
+        itemDiv = document.createElement('div');
+        itemDiv.classList.add('item');
 
-for (var but of button) {
-	but.addEventListener('click', (e) => {
-		var add = Number(cart.getAttribute('data-count') || 0);
-		cart.setAttribute('data-count', add + 1);
-		cart.classList.add('zero')
+        itemName = document.createElement('h4');
+        itemName.innerText = 'Test';
 
-		// copy and paste //
-		var parent = e.target.parentNode;
-		var clone = parent.cloneNode(true);
-		select.appendChild(clone);
-		clone.lastElementChild.innerText = "Buy-now";
+        itemPrice = document.createElement('p');
+        itemPrice.innerText = 'Price: $10';
 
-		if (clone) {
-			cart.onclick = () => {
-				select.classList.toggle('display');
-			}
-		}
-	})
-}
+        itemDiv.appendChild(itemName);
+        itemDiv.appendChild(itemPrice);
+        newDiv.appendChild(itemDiv);
+
+        document.getElementById('cart').appendChild(newDiv);
+    }
+});
