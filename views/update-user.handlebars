@@ -18,6 +18,16 @@
 <div>
     <a href="/restaurants/add-restaurant">Click Here to Add a New Restaurant</a>
 </div>
+<div class="restaurants-container">
+    <h3>Your Restaurants</h3>
+    {{#each restaurants as |this|}}
+    {{#if (check_owner current_owner owner_id)}}
+    <div class="single-restaurant">
+        {{> restaurant this}}
+    </div>
+    {{/if}}
+    {{/each}}
+</div>
 {{/if}}
 
 {{#if isOwner}}

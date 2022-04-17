@@ -1,13 +1,6 @@
 <section>
-    {{#each restaurants}}
-        <h4> {{name}}</h4>
-        <p> Address: {{address}}</p>
-        <p> Phone Number: {{phone_number}}</p>
-        <p> Open: {{open_at}}</p>
-        <p> Close: {{close_at}}</p>
-        <span></span>
-        <button id="button{{id}}">View Menu</button>
-    </div>
+    {{#each restaurants as |restaurant|}}
+        {{> restaurant restaurant}}
     {{/each}}
 </section>
 
