@@ -14,4 +14,8 @@
     </div>
 </form>
 
+{{#if isOwner}}
+<script src="/javascript/update-owner.js"></script>
+{{else}}
 <script src="/javascript/update-user.js"></script>
+{{/if}}

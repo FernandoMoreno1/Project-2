@@ -17,7 +17,8 @@ router.get('/', (req, res) => {
 
         res.render('homepage', { 
             users,
-            loggedIn: req.session.loggedIn
+            loggedIn: req.session.loggedIn,
+            isOwner: req.session.isOwner
         });
     })
     .catch(err => {
@@ -33,6 +34,15 @@ router.get('/login', (req, res) => {
     }
 
     res.render('login');
+});
+
+router.get('/owner-login', (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+
+    res.render('owner-login');
 });
 
 router.get('/signup', (req, res) => {
@@ -61,6 +71,7 @@ router.get('/update-user', (req, res) => {
 
     res.render('update-user', {
         loggedIn: req.session.loggedIn,
+        isOwner: req.session.isOwner,
         id: req.session.user_id
     });
 });

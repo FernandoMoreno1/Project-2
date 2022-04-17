@@ -7,7 +7,7 @@ const Product = require('./Product');
 const MenuProduct = require('./MenuProduct');
 
 // create associations
-Owner.hasOne(Restaurant);
+Owner.hasMany(Restaurant);
 
 Restaurant.belongsTo(Owner);
 
