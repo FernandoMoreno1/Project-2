@@ -42,4 +42,17 @@ router.get('/add-restaurant', (req, res) => {
     });
 });
 
+router.get('/admin', (req,res) => {
+    if(!req.session.isOwner) {
+        res.redirect('/');
+        return;
+    }
+
+    res.render('admin', {
+        id: req.session.user_id,
+        loggedIn: req.session.loggedIn,
+        isOwner: req.session.isOwner
+    });
+})
+
 module.exports = router;
