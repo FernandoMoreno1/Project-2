@@ -1,6 +1,6 @@
 // import all models
 const User = require('./User');
-const Order = require('./Order');
+const Order = require('./order');
 const Product = require('./product');
 const Owner = require('./Owner');
 const Restaurant = require('./Restaurant')
