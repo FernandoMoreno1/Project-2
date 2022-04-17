@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Restaurant } = require('../models');
+const { Owner, Restaurant, Menu, Product } = require('../models');
 
 // get restaurants
 router.get('/', (req, res) => {
@@ -48,11 +48,31 @@ router.get('/admin', (req,res) => {
         return;
     }
 
-    res.render('admin', {
-        id: req.session.user_id,
-        loggedIn: req.session.loggedIn,
-        isOwner: req.session.isOwner
-    });
+    console.log('======================');
+    Owner.findAll({
+        include: [
+        {
+            model: Restaurant
+        },
+        {
+            model: Menu,
+        },
+        {
+            model: Product
+        }
+    ]
+    })
+    .then(ownerData => {
+        const ownerDB = ownerData.map(owner => owner.get({ plain: true}));
+        console.log(ownerDB);
+        
+        res.render('admin', {
+            ownerDB,
+            id: req.session.user_id,
+            loggedIn: req.session.loggedIn,
+            isOwner: req.session.isOwner
+        });
+    })
 })
 
 module.exports = router;

@@ -8,13 +8,14 @@ const MenuProduct = require('./MenuProduct');
 
 // create associations
 Owner.hasMany(Restaurant);
+Owner.hasMany(Menu);
+Owner.hasMany(Product);
 
 Restaurant.belongsTo(Owner);
-
 Restaurant.hasOne(Menu);
 
 Menu.belongsTo(Restaurant);
-
+Menu.belongsTo(Owner);
 Menu.belongsToMany(Product,
     {
         through: MenuProduct,
@@ -23,6 +24,7 @@ Menu.belongsToMany(Product,
         onDelete: 'SET NULL'
     });
 
+Product.belongsTo(Owner);
 Product.belongsToMany(Menu,
     {
         through: MenuProduct,

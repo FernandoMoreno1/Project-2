@@ -22,6 +22,13 @@ Product.init(
         description:{
             type: DataTypes.STRING,
             allowNull: false
+        },
+        owner_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'owner',
+                key: 'id'
+            }
         }
     },
     {

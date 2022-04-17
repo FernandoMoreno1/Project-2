@@ -19,6 +19,13 @@ Menu.init(
                 model: 'restaurant',
                 key: 'id'
             }
+        },
+        owner_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'owner',
+                key: 'id'
+            }
         }
     },
     {
