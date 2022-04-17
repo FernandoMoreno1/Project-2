@@ -1,14 +1,31 @@
-# Project-2
+# Project-2: Upscale Delivery
 
 ## Description
 Upscale Delivery help you order from your local restaurants from wherever you are.
 How it works: you sign up and we give you a list of restaurants near you.
 When you find what youre looking for, you can just press "add to cart" and begin your order.
 
+## User story
+As a customer, I WANT to see the variety restaurant and food options and be able to checkout the items I picked. 
+As a restaurant owner, I WANT to know what customers ordered in my restaurant and which foods need to be prepared. 
+
+## Image
+![Untitled 4](https://user-images.githubusercontent.com/95258502/163734585-3c844afa-a385-49cb-b352-4f13225407e1.png)
 * [live link](https://git.heroku.com/upscale-delivery.git)
+
+## Presentation
+* [upscale_delivery](https://docs.google.com/presentation/d/1siIjXDHD9MkesPmx23gXTPmRdKCLKRJdBRwK2425b9k/slide=id.p#slide=id.p)
+
+
 ## Technologies Used
 * ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-
+   - express-handlebars
+   - express-session
+   - connect-session-sequelize
+   - MySQL2
+   - Bcrypt
+   - Dotenv
+ 
 ## Contributions
 * [Haejeong Kim ](https://github.com/oliviakim96)
 * [Hilary Vasconez ](https://github.com/hvasconez24)
