@@ -1,0 +1,13 @@
+<h1><i class="fa fa-shopping-cart"></i></h1>
+<section>
+    {{#each items as |item|}}
+    {{> menu-item item}}
+    {{/each}}
+</section>
+
+{{!-- this is where the items from the cart will show up --}}
+<div class="select">
+
+</div>
+
+<script type="text/javascript" src="./javascript/menu.js"></script>

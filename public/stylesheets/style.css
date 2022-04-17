@@ -1,0 +1,185 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    padding: 20px 35px;
+    background-color: #39a6b2;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 50px;
+}
+
+header nav {
+    margin: 7px 0;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+header a {
+    list-style: none;
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+}
+
+/* FOOTER STYLES START */
+footer {
+    background: #39a6b2;
+    padding: 40px 35px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    position:absolute;
+    bottom: -489px;
+}
+
+footer h2 {
+    font-size: 20px;
+    margin: 0;
+}
+
+footer div {
+    line-height: 1.5;
+    text-align: right;
+}
+
+body {
+    background-color: lightgrey;
+}
+
+.description {
+    align-items: center;
+    text-align: center;
+    display: flex;
+    width: 70%;
+    margin: 30px 30px 30px 200px;
+}
+
+.description p {
+    font-size: 25px;
+    padding: 10px;
+}
+
+.Restaurant-info {
+    margin: 150px;
+}
+
+.Restaurant-info h4 {
+    font-size: 30px;
+}
+
+.Restaurant-info p {
+    font-size: 20px;
+    padding: 10px;
+}
+
+.aboutUs {
+    margin: 150px;
+}
+
+.aboutUs h4 {
+    font-size: 30px;
+}
+
+.aboutUs p {
+    font-size: 20px;
+    padding: 10px;
+}
+
+
+.login-form {
+    border: 4px solid black;
+    width: 600px;
+    margin: 100px 400px;
+    padding: 20px;
+}
+.login-form label {
+    font-size: 30px;
+}
+
+.login-form button {
+    font-size: 20px;
+    justify-content: center;
+}
+.login-form a {
+
+    font-size: 20px;
+    color: black;
+
+}
+
+.signup-form {
+    border: 4px solid black;
+    width: 600px;
+    margin: 100px 400px;
+    padding: 20px;
+}
+
+.signup-form label {
+    font-size: 30px;
+}
+
+.signup-form button {
+    font-size: 20px;
+    justify-content: center;
+}
+
+.signup-form a {
+    font-size: 20px;
+    color: black;
+
+}
+
+.item {
+    width: 22%;
+    height: 93%;
+    background: #f5f5f5;
+    padding: 1%;
+    position: relative;
+}
+
+.item img {
+        width: 300px;
+        height: 186px;
+}
+
+.item p {
+    margin: 5px
+}
+
+.item h6 {
+    width: 50px;
+    padding: 5px;
+    margin: 10px;
+    font-size: 15px;
+}
+
+.item button {
+    padding: 5px;
+    background: red;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    color: #fafafa;
+    cursor: pointer;
+}
+
+.select {
+    width: 60%;
+    height: 580px;
+    padding: 5%;
+    background: #222;
+    position: absolute;
+    top: -1000px;
+    left: 20%;
+    transition: 0.5s;
+    overflow-y: auto;
+    margin: auto;
+}

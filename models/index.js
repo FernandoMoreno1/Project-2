@@ -6,6 +6,11 @@ const Category = require('./Category');
 const Order = require('./Order');
 const Product = require('./Product');
 
+const Owner = require('./Owner');
+const Menu = require('./Menu');
+const Product = require('./Product');
+const MenuProduct = require('./MenuProduct');
+
 // create associations
 User.hasMany(Order,{
     foreignKey: 'user_id'
@@ -40,11 +45,40 @@ Product.belongsTo(Image,{
     onDelete: 'SET NULL'
 });
 
+// create associations
+Owner.hasMany(Restaurant);
+
+Restaurant.belongsTo(Owner);
+
+Restaurant.hasOne(Menu);
+
+Menu.belongsTo(Restaurant);
+
+Menu.belongsToMany(Product,
+    {
+        through: MenuProduct,
+        as: 'product_menu',
+        foreignKey: 'menu_id',
+        onDelete: 'SET NULL'
+    });
+
+Product.belongsToMany(Menu,
+    {
+        through: MenuProduct,
+        as: 'menu_product',
+        foreignKey: 'product_id',
+        onDelete: 'SET NULL'
+    });
+
 module.exports = {
     User,
     Restaurant,
     Category,
     Image,
     Product,
-    Order
+    Order,
+    Owner,
+    Menu,
+    Product,
+    MenuProduct
 };

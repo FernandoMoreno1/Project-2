@@ -4,12 +4,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
+  <title>Upscale Delivery</title>
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
 <body>
-  
+  <div class="wrapper">
+    <header>
+      <h1>
+        Upscale Delivery
+      </h1>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/restaurants">Restaurants</a>
+        <a href="/cart">🛒</a>
+        {{#if loggedIn}}
+        <a href="/update-user">Update Info</a>
+        <button id="logout" class="btn-no-style">Logout</button>
+        {{else}}
+        <a href="/signup">Sign Up</a>
+        <a href="/login">Login</a>
+        {{/if}}
+      </nav>
+    </header>
+    <main>
+      {{{ body }}}
+    </main>
+  <footer>
+    <div>
+      © 2022 Upscale-Delivery All rights reserved.
+    </div>
+    <div>Terms of Use</div>
+    <div>Privacy Policy</div>
+  </footer>
+  </div>
+
+  {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+  {{/if}}
 </body>
 
 </html>
