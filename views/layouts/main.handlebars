@@ -17,7 +17,11 @@
       <nav>
         <a href="/">Home</a>
         <a href="/restaurants">Restaurants</a>
+        {{#if isOwner}}
+        <a href="/restaurants/admin">Admin Menu</a>
+        {{else}}
         <a href="/cart">🛒</a>
+        {{/if}}
         {{#if loggedIn}}
         <a href="/update-user">Update Info</a>
         <button id="logout" class="btn-no-style">Logout</button>
