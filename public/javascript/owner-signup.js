@@ -26,7 +26,7 @@ async function signupFormHandler(event) {
         });
 
         if (response.ok) {
-            document.location.replace('/');
+            document.location.replace('/update-user');
         } else {
             alert(response.statusText);
         }

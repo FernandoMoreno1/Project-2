@@ -23,4 +23,11 @@ async function updateFormHandler(event) {
     }
 }
 
+async function restaurantFormHandler(event) {
+    event.preventDefault();
+
+    document.location.replace('/restaurants/admin');
+}
+
 document.querySelector('.user-update-form').addEventListener('submit', updateFormHandler);
+document.querySelector('#edit-button').addEventListener('click', restaurantFormHandler);
