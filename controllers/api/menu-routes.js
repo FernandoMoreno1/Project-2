@@ -11,6 +11,7 @@ router.get('/', (req, res) => {
     });
 });
 
+// post new menu
 router.post('/', (req, res) => {
     Restaurant.findOne({
         where: {
