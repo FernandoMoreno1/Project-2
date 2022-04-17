@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Product, Category, Restaurant, Image } = require('../../models');
+const { Product, Restaurant, Image } = require('../../models');
 
 //Get all 
 router.get('/', (req, res) => {
@@ -14,11 +14,11 @@ router.get('/', (req, res) => {
        include:[
             {
                 model: Restaurant,
-                attributes: ['name']
+                attributes: ['id','name']
             },
             {
                 model: Image,
-                attributes: ['route']
+                attributes: ['id','route']
             }
         ] 
     })
@@ -27,6 +27,37 @@ router.get('/', (req, res) => {
         console.log(error);
         res.status(500).json(error);
       });
+});
+
+//Get products by restaurant 
+router.get('/restaurant/:id', (req, res) => {
+  Product.findAll({
+    where:{
+      restaurant_id: req.params.id
+    },
+      attributes: [
+          'id',
+          'name',
+          'price',
+          'description',
+          'isActive'
+      ],
+      include:[
+        {
+            model: Restaurant,
+            attributes: ['id','name']
+        },
+        {
+            model: Image,
+            attributes: ['id','route']
+        }
+    ] 
+  })
+    .then(productDb => res.json(productDb))
+    .catch(error => {
+      console.log(error);
+      res.status(500).json(error);
+    });
 });
 
 //Get one 
@@ -44,15 +75,15 @@ router.get('/:id', (req, res) => {
             'isActive'
         ],
         include:[
-            {
-                model: Restaurant,
-                attributes: ['name']
-            },
-            {
-                model: Image,
-                attributes: ['route']
-            }
-        ]
+          {
+              model: Restaurant,
+              attributes: ['id','name']
+          },
+          {
+              model: Image,
+              attributes: ['id','route']
+          }
+      ]
     })
       .then(productDb =>{
         if (!productDb) {

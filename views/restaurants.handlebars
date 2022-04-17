@@ -1,0 +1,13 @@
+<div class="card" style="padding:4%; margin:4%;">
+    {{#each restaurants}}
+        <h4> {{name}}</h4>
+        <p> Address: {{address}}</p>
+        <p> Phone Number: {{phone_number}}</p>
+        <p> Open: {{open_at}}</p>
+        <p> Close: {{close_at}}</p>
+        <div class="row">
+            <a class="btn btn-danger col-2" href="/menu/{{id}}">View Menu</a>
+        </div> 
+    </div>
+    {{/each}}
+</div>

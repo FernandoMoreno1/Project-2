@@ -5,11 +5,14 @@ const Image = require('./Image');
 const Category = require('./Category');
 const Order = require('./Order');
 const Product = require('./Product');
+const Owner = require('./Owner');
 
 // create associations
 User.hasMany(Order,{
     foreignKey: 'user_id'
 });
+
+Owner.hasMany(Restaurant);
 
 Restaurant.hasMany(Product, {
     foreignKey: 'restaurant_id'
@@ -46,5 +49,6 @@ module.exports = {
     Category,
     Image,
     Product,
-    Order
+    Order,
+    Owner
 };

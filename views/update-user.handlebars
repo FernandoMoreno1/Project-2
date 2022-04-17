@@ -1,0 +1,27 @@
+<form class="user-update-form" id="user{{id}}">
+    <div>
+        <label for="address-update">Address: </label>
+        <input type="text" id="address-update" />
+    </div>
+
+    <div>
+        <label for="phone-update">Phone Number: </label>
+        <input type="text" id="phone-update" />
+    </div>
+
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+</form>
+
+{{#if isOwner}}
+<div>
+    <a href="/restaurants/add-restaurant">Click Here to Add a New Restaurant</a>
+</div>
+{{/if}}
+
+{{#if isOwner}}
+<script src="/javascript/update-owner.js"></script>
+{{else}}
+<script src="/javascript/update-user.js"></script>
+{{/if}}

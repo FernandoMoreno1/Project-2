@@ -1,0 +1,40 @@
+<div class="center-form" style="padding:4%; margin:4%;">
+  <div class="d-flex align-items-end flex-column">
+    <a class="p-2 btn btn-outline-secondary m-R" href="/menu/{{product.restaurant_id}}"> <i class="far fa-arrow-alt-circle-left"></i> Back</a>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Edit Product</h2>
+      <form class="edit-product-form">
+        <div class="form-group">
+          <div class="form-group" hidden>
+            <label for="product-id" class="font-title"></label>
+            <input class="form-control" name="product-id" type="number" value="{{product.id}}">
+          </div>
+          <div class="form-group">
+            <label for="product-name"  class="font-title">Name</label>
+            <input class="form-control" name="product-name" type="text" value="{{product.name}}">
+          </div>
+          <label for="product-price" class="font-title">Price</label>
+          <input class="form-control" name="product-price" type="number" value="{{product.price}}">
+        </div>
+        <div class="form-group">
+          <label for="product-description"  class="font-title">Description</label>
+          <input class="form-control" name="product-description" type="text" value="{{product.description}}">
+        </div>
+        <div class="form-group" hidden>
+          <label for="product-restaurant_id" class="font-title">Restaurant</label>
+          <input class="form-control" name="product-restaurant_id" type="number" value="{{product.restaurant_id}}">
+        </div>
+        <span class="text-muted"></span>
+        <br/>
+        <br/>
+        <button type="submit" class="btn btn-info">Save Changes <i class="fas fa-save"></i></button>
+        <button type="button" class="btn btn-danger delete-product-btn">Delete <i class="fas fa-trash-alt"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="/javascript/product/edit-product.js"></script>
+<script src="/javascript/product/delete-product.js"></script>
