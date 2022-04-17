@@ -23,34 +23,27 @@ Product.init(
         type: DataTypes.STRING,
         allowNull: false
     },
-    id_restuarant:{
+    restaurant_id:{
       type: DataTypes.INTEGER,
         references: {
             model: 'restaurant',
             key: 'id'
-        },
-        allowNull: true
+        }
     },
-    id_image:{
+    image_id:{
         type: DataTypes.INTEGER,
         references: {
             model: 'image',
             key: 'id'
-        },
-        allowNull: true
-    },
-    id_category:{
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'category',
-            key: 'id'
-        },
-        allowNull: false
+        }
     },
     isActive:{
         type: DataTypes.BOOLEAN,
-        defaultValue:true,
-        allowNull: false
+        defaultValue:true
+    },
+    sold: { 
+      type: DataTypes.INTEGER, 
+      default: 0 
     }
   },
   {

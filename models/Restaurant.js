@@ -13,17 +13,11 @@ Restaurant.init(
         },
         name: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                isAlpha: true
-            }
+            allowNull: false
         },
         address: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                isAlpha: true
-            }
+            allowNull: false
         },
         phone_number: {
             type: DataTypes.STRING,
@@ -37,10 +31,18 @@ Restaurant.init(
             type: DataTypes.TIME,
             allowNull: false
         },
-        id_image:{
+        image_id:{
             type: DataTypes.INTEGER,
             references: {
                 model: 'image',
+                key: 'id'
+            },
+            allowNull: true
+        },
+        category_id:{
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'category',
                 key: 'id'
             },
             allowNull: true
@@ -51,7 +53,7 @@ Restaurant.init(
       timestamps: false,
       freezeTableName: true,
       underscored: true,
-      modelName: 'product'
+      modelName: 'restaurant'
     }
 );
 

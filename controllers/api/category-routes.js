@@ -1,30 +1,30 @@
 const router = require('express').Router();
-const { Image } = require('../../models');
+const { Category } = require('../../models');
 
-//Get all images
+//Get all 
 router.get('/', (req, res) => {
-    Image.findAll()
-      .then(imageDb => res.json(imageDb))
+    Category.findAll()
+      .then(categoryDb => res.json(categoryDb))
       .catch(error => {
         console.log(error);
         res.status(500).json(error);
       });
 });
 
-//Get image
+//Get one
 router.get('/:id', (req, res) => {
     var ID = req.params.id;
-    Image.findOne({
+    Category.findOne({
         where: {
             id: ID
           }
     })
-      .then(imageDb =>{
-        if (!imageDb) {
-            res.status(404).json({ message: 'No Image found with this id' });
+      .then(categoryDb =>{
+        if (!categoryDb) {
+            res.status(404).json({ message: 'No Category found with this id' });
             return;
           }
-          res.json(imageDb)
+          res.json(categoryDb)
       })
       .catch(error => {
         console.log(error);
@@ -32,23 +32,26 @@ router.get('/:id', (req, res) => {
       });
 });
 
-//new image
+//new 
 router.post('/', (req, res) => {
-    Image.create({
-      route: req.body.route,
+    Category.create({
+      name: req.body.name,
+      description: req.body.description
     })
-      .then(imageDb => res.json(imageDb))
+      .then(categoryDb => res.json(categoryDb))
       .catch(error => {
         console.log(error);
         res.status(500).json(error);
       });
   });
 
-//update image
+//update 
 router.put('/:id', (req, res) =>{
-    Image.update(
+    Category.update(
         {
-            route: req.body.route
+            name: req.body.name,
+            description: req.body.description,
+            is_active: req.body.is_active
         },
         {
             where: {
@@ -56,12 +59,12 @@ router.put('/:id', (req, res) =>{
             }
         }
     )
-     .then(imageDb =>{
-        if (!imageDb) {
-            res.status(404).json({ message: 'No Image found with this id' });
+     .then(categoryDb =>{
+        if (!categoryDb) {
+            res.status(404).json({ message: 'No Category found with this id' });
             return;
           }
-          res.json(imageDb)
+          res.json(categoryDb)
      })
      .catch(error => {
         console.log(error);
@@ -69,19 +72,19 @@ router.put('/:id', (req, res) =>{
       });
 });
 
-//delete image
+//delete 
 router.delete('/:id', (req, res) => {
-  Image.destroy({
+  Category.destroy({
     where: {
       id: req.params.id
     }
   })
-    .then(imageDb => {
-      if (!imageDb) {
-        res.status(404).json({ message: 'No Image found with this id!' });
+    .then(categoryDb => {
+      if (!categoryDb) {
+        res.status(404).json({ message: 'No Category found with this id!' });
         return;
       }
-      res.json(imageDb);
+      res.json(categoryDb);
     })
     .catch(error => {
       console.log(error);
@@ -91,8 +94,3 @@ router.delete('/:id', (req, res) => {
 
 
 module.exports = router;
-
-
-
-
-

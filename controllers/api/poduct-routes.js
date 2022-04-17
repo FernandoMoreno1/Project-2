@@ -4,6 +4,13 @@ const { Product, Category, Restaurant, Image } = require('../../models');
 //Get all 
 router.get('/', (req, res) => {
     Product.findAll({
+        attributes: [
+            'id',
+            'name',
+            'price',
+            'description',
+            'isActive'
+        ],
        include:[
             {
                 model: Restaurant,
@@ -12,10 +19,6 @@ router.get('/', (req, res) => {
             {
                 model: Image,
                 attributes: ['route']
-            },
-            {
-                model: Category,
-                attributes: ['name', 'description']
             }
         ] 
     })
@@ -33,6 +36,13 @@ router.get('/:id', (req, res) => {
         where:{
             id: ID
         },
+        attributes: [
+            'id',
+            'name',
+            'price',
+            'description',
+            'isActive'
+        ],
         include:[
             {
                 model: Restaurant,
@@ -41,10 +51,6 @@ router.get('/:id', (req, res) => {
             {
                 model: Image,
                 attributes: ['route']
-            },
-            {
-                model: Category,
-                attributes: ['name', 'description']
             }
         ]
     })
@@ -61,3 +67,69 @@ router.get('/:id', (req, res) => {
       });
 });
 
+//new 
+router.post('/', (req,res) => {
+    var data = req.body;
+    console.log(data);
+    Product.create({
+        name: data.name,
+        price: data.price,
+        description: data.description,
+        restaurant_id: data.restaurant_id,
+        image_id: data.image_id
+    })
+      .then(productDb => res.json(productDb))
+      .catch(error => {
+          res.status(500).json(error);
+      });
+});
+
+//update 
+router.put('/:id', (req,res) => {
+    var data = req.body;
+    console.log(data);
+    Product.update(
+        {
+            name: data.name,
+            price: data.price,
+            description: data.description,
+            restaurant_id: data.restaurant_id,
+            image_id: data.image_id,
+            sold: data.sold,
+            isActive: data.isActive
+        },
+        {
+            where: {
+                id: req.params.id
+            }
+        }
+    )
+      .then(productDb => res.json(productDb))
+      .catch(error => {
+          res.status(500).json(error);
+      });
+});
+
+//delete 
+router.delete('/:id', (req, res) => {
+    Product.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(productDb => {
+        if (!productDb) {
+          res.status(404).json({ message: 'No product found with this id!' });
+          return;
+        }
+        res.json(productDb);
+      })
+      .catch(error => {
+        console.log(error);
+        res.status(500).json(error);
+      });
+  });
+
+
+
+module.exports = router;

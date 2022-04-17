@@ -11,44 +11,39 @@ Order.init(
       primaryKey: true,
       autoIncrement: true
     },
-    id_user:{
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'user',
-            key: 'id'
-        },
-        allowNull: false
-    },
-    id_restaurant:{
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'restaurant',
-            key: 'id'
-        },
-        allowNull: false
-    },
     total:{
         type: DataTypes.DECIMAL,
         allowNull: false
     },
-    description: [
-        {
-          product: {
-            name: { type: DataTypes.STRING, allowNull: false },
-            price: { type: DataTypes.DECIMAL, default: 0 },
-          },
-          quantity: { type: Number, default: 1 },
-          total: { type: DataTypes.DECIMAL, default: 0 },
-        },
-    ],
+    description: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    // [
+    //     {
+    //       product: {
+    //         name: { type: DataTypes.STRING, allowNull: false },
+    //         price: { type: DataTypes.DECIMAL, default: 0 },
+    //       },
+    //       quantity: { type: Number, default: 1 },
+    //       total: { type: DataTypes.DECIMAL, default: 0 },
+    //     },
+    // ],
     state:{
-        type: DataTypes.ENUM('delivey','on way','process'),
-        defaultValue: "process"
+      type: DataTypes.ENUM("delivery","on way","process"),
+      defaultValue: "process",
+      allowNull: false
     },
     finished:{
         type: DataTypes.BOOLEAN,
-        defaultValue:false,
-        allowNull: false
+        defaultValue: false
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'users',
+        key: 'id'
+      }
     }
   },
   {
