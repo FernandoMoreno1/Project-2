@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Owner, Restaurant, Menu, Product } = require('../models');
+const { Owner, Restaurant, Menu, Product, MenuProduct } = require('../models');
 
 // get restaurants
 router.get('/', (req, res) => {
@@ -29,13 +29,46 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/add-restaurant', (req, res) => {
+// get restaurant menu
+router.get('/menu/:id', (req, res) => {
+    console.log('======================');
+    Menu.findOne({
+        where: {
+            id: req.params.id
+        },
+        include: [
+            {
+                model: Product,
+                through: MenuProduct,
+                as: 'product_menu'
+            }
+        ]
+    })
+    .then(menuData => {
+        if (!menuData) {
+            res.status(404).json({ message: 'No menu found with this id' });
+            return;
+        }
+        const items = menuData.get('product_menu', { plain: true});
+
+        res.render('menu', {
+            items,
+            loggedIn: req.session.loggedIn
+        });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
+router.get('/add-restaurants', (req, res) => {
     if (!req.session.isOwner) {
         res.redirect('/');
         return;
     }
 
-    res.render('add-restaurant', {
+    res.render('add-restaurants', {
         id: req.session.user_id,
         loggedIn: req.session.loggedIn,
         isOwner: req.session.isOwner
