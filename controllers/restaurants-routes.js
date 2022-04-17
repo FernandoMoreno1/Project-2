@@ -20,7 +20,8 @@ router.get('/', (req, res) => {
 
         res.render('restaurants', {
             restaurants,
-            loggedIn: req.session.loggedIn
+            loggedIn: req.session.loggedIn,
+            isOwner: req.session.isOwner
         });
     })
     .catch(err => {
@@ -53,7 +54,8 @@ router.get('/menu/:id', (req, res) => {
 
         res.render('menu', {
             items,
-            loggedIn: req.session.loggedIn
+            loggedIn: req.session.loggedIn,
+            isOwner: req.session.isOwner
         });
     })
     .catch(err => {

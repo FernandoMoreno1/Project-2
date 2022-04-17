@@ -1,6 +1,7 @@
 <section>
     {{#each restaurants as |restaurant|}}
         {{> restaurant restaurant}}
+        <button class="res-button" id="restaurant{{restaurant.id}}">View Menu</button>
     {{/each}}
 </section>
 
