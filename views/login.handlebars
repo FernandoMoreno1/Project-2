@@ -1,17 +1,19 @@
-<form class="login-form">
-  <a class="login-link" href="/owner-login">Restaurant Owners Login Here</a> 
-  <div>
-    <label for="email-login">email:</label>
-    <input type="text" id="email-login" />
-  </div>
-  <div>
-    <label for="password-login">password:</label>
-    <input type="password" id="password-login" />
-  </div>
-  <div>
-    <button type="submit">login</button>
-  </div>
-<a class="login-link" href="/signup">create your account</a>  
-</form>
+<div class="card" style="margin:4%; padding: 4%;">
+  <h2>Login</h2>
+  <form class="login-form">
+    <a class="login-link" href="/owner-login">Restaurant Owners Login Here</a> 
+    <div class="form-group">
+      <label for="email-login">Email:</label>
+      <input class="form-control" type="text" id="email-login" />
+    </div>
+    <div class="form-group">
+      <label for="password-login">Password:</label>
+      <input class="form-control" type="password" id="password-login" />
+    </div>
+    <button class="btn btn-success" type="submit">login</button>
+    <br/>
+    <a class="login-link" href="/signup">create your account</a>  
+  </form>
+</div>
 
 <script src="/javascript/login.js"></script>

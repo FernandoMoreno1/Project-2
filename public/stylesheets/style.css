@@ -1,48 +1,30 @@
-* {
-    box-sizing: border-box;
+html {
+    min-height: 100%;
+    position: relative;
+  }
+  body {
     margin: 0;
-    padding: 0;
-}
+    margin-bottom: 40px;
+  }
 
 header {
-    padding: 20px 35px;
     background-color: #39a6b2;
     text-align: center;
-}
-
-header h1 {
-    font-size: 50px;
-}
-
-header nav {
-    margin: 7px 0;
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-}
-
-header a {
-    list-style: none;
-    text-decoration: none;
     color: black;
-    font-size: 25px;
 }
 
 /* FOOTER STYLES START */
+
 footer {
-    background: #39a6b2;
-    padding: 40px 35px;
-    display: flex;
     position: absolute;
-    bottom: 0;
+    width: 100%;
+    min-height: 60px;
     justify-content: space-between;
     flex-wrap: wrap;
-    width: 100%;
-    position:absolute;
-    bottom: -489px;
-}
+    background: #39a6b2;
+  }
 
-footer h2 {
+  footer h2 {
     font-size: 20px;
     margin: 0;
 }
@@ -52,92 +34,10 @@ footer div {
     text-align: right;
 }
 
-body {
-    background-color: lightgrey;
-}
-
-.description {
-    align-items: center;
-    text-align: center;
-    display: flex;
-    width: 70%;
-    margin: 30px 30px 30px 200px;
-}
-
-.description p {
-    font-size: 25px;
-    padding: 10px;
-}
-
 .Restaurant-info {
     margin: 150px;
 }
 
-.Restaurant-info h4 {
-    font-size: 30px;
-}
-
-.Restaurant-info p {
-    font-size: 20px;
-    padding: 10px;
-}
-
-.aboutUs {
-    margin: 150px;
-}
-
-.aboutUs h4 {
-    font-size: 30px;
-}
-
-.aboutUs p {
-    font-size: 20px;
-    padding: 10px;
-}
-
-
-.login-form {
-    border: 4px solid black;
-    width: 600px;
-    margin: 100px 400px;
-    padding: 20px;
-}
-.login-form label {
-    font-size: 30px;
-}
-
-.login-form button {
-    font-size: 20px;
-    justify-content: center;
-}
-.login-form a {
-
-    font-size: 20px;
-    color: black;
-
-}
-
-.signup-form {
-    border: 4px solid black;
-    width: 600px;
-    margin: 100px 400px;
-    padding: 20px;
-}
-
-.signup-form label {
-    font-size: 30px;
-}
-
-.signup-form button {
-    font-size: 20px;
-    justify-content: center;
-}
-
-.signup-form a {
-    font-size: 20px;
-    color: black;
-
-}
 
 .item {
     width: 22%;
