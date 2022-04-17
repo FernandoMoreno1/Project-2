@@ -15,6 +15,12 @@
 </form>
 
 {{#if isOwner}}
+<div>
+    <a href="/restaurants/add-restaurant">Click Here to Add a New Restaurant</a>
+</div>
+{{/if}}
+
+{{#if isOwner}}
 <script src="/javascript/update-owner.js"></script>
 {{else}}
 <script src="/javascript/update-user.js"></script>

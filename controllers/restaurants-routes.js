@@ -29,4 +29,17 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/add-restaurant', (req, res) => {
+    if (!req.session.isOwner) {
+        res.redirect('/');
+        return;
+    }
+
+    res.render('add-restaurant', {
+        id: req.session.user_id,
+        loggedIn: req.session.loggedIn,
+        isOwner: req.session.isOwner
+    });
+});
+
 module.exports = router;

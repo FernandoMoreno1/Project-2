@@ -19,9 +19,6 @@ Restaurant.init(
         address: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {
-                isAlphanumeric: true
-            }
         },
         phone_number: {
             type: DataTypes.STRING,
