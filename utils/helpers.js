@@ -1,5 +1,5 @@
 module.exports = {
-    check_owner: (owner_id,current_id) => {
-        return owner_id == current_id;
+    check_equal: (val1, val2) => {
+        return val1 == val2;
     }
 }

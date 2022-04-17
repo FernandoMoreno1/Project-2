@@ -21,14 +21,14 @@
 <div class="restaurants-container">
     <h3>Your Restaurants</h3>
     {{#each restaurants as |this|}}
-    {{#if (check_owner current_owner owner_id)}}
+    {{#if (check_equal current_owner owner_id)}}
     <div class="single-restaurant">
         {{> restaurant this}}
     </div>
     {{/if}}
     {{/each}}
     {{#if restaurants}}
-    <button id="edit-button">Edit Restaurants</button>
+    <button id="edit-button">Admin Page</button>
     {{else}}
     {{/if}}
 </div>

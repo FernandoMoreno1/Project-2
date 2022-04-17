@@ -1,10 +1,42 @@
-<div class="restaurants-container">
-    <h3>Your Restaurants</h3>
-    {{#each ownerDB as |owner|}}
-        {{#with owner.restaurants as |restaurants|}}
-        {{#each restaurants as |restaurant|}}
-            {{> restaurant restaurant}}
+<div class="admin-container">
+    <div class="restaurants-container">
+        <h3>Your Restaurants</h3>
+        {{#each ownerDB as |owner|}}
+            {{#with owner.restaurants as |restaurants|}}
+            {{#each restaurants as |restaurant|}}
+                {{> restaurant restaurant}}
+            {{/each}}
+            {{/with}}
         {{/each}}
-        {{/with}}
-    {{/each}}
+        <button class='add-button' id="add-restaurants">Add Restaurants</button>
+        <button class='delete-button' id="delete-restaurants">Delete Restaurants</button>
+    </div>
+
+    <div class="menus-container">
+        <h3>Your Menus</h3>
+        {{#each ownerDB as |owner|}}
+            {{#with owner.menus as |menus|}}
+            {{#each menus as |menu|}}
+                <p>Menu {{menu.id}}</p>
+            {{/each}}
+            {{/with}}
+        {{/each}}
+        <button class='add-button' id="add-menus">Add Menus</button>
+        <button class='delete-button' id="delete-menus">Delete Menus</button>
+    </div>
+
+    <div class="products-container">
+        <h3>Your Products</h3>
+        {{#each ownerDB as |owner|}}
+            {{#with owner.products as |products|}}
+            {{#each products as |product|}}
+                <p>{{product.name}}</p>
+            {{/each}}
+            {{/with}}
+        {{/each}}
+        <button class='add-button' id="add-products">Add Products</button>
+        <button class='delete-button' id="delete-products">Delete Products</button>
+    </div>
 </div>
+
+<script src="/javascript/admin.js"></script>
