@@ -21,25 +21,16 @@ User.init(
         },
         first_name: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                isAlpha: true
-            }
+            allowNull: false
         },
         last_name: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                isAlpha: true
-            }
+            allowNull: false
         },
         username: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true,
-            validate: {
-                isAlphanumeric: true
-            }
+            unique: true
         },
         password: {
             type: DataTypes.STRING,
@@ -62,10 +53,7 @@ User.init(
         },
         address: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                isAlphanumeric: true
-            }
+            allowNull: false
         }
     },
     {

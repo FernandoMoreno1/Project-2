@@ -14,21 +14,20 @@ router.get('/:id', (req, res) => {
             'name',
             'price',
             'description',
-            'isActive'
+            'isActive',
+            'restaurant_id'
         ],
         include:[
             {
                 model: Restaurant,
                 attributes: ['id','name']
-            },
-            {
-                model: Image,
-                attributes: ['id','route']
             }
         ]
     })
     .then(menuData => {
         const items = menuData.map(menuD => menuD.get({ plain: true}));
+        
+        console.log(items);
 
         res.render('menu', {
             items,

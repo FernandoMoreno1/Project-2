@@ -76,4 +76,13 @@ router.get('/update-user', (req, res) => {
     });
 });
 
+router.get('/cart', (req, res) => {
+    
+    res.render('cart', {
+        loggedIn: req.session.loggedIn,
+        isOwner: req.session.isOwner,
+        id: req.session.user_id
+    });
+});
+
 module.exports = router;
