@@ -1,0 +1,31 @@
+<div class="menu-dropdown">
+    <label>Select Menu: </label>
+    <select id="select-menu" name="menu">
+        {{#each ownerDB as |owner|}}
+            {{#with owner.menus as |menus|}}
+            {{#each menus as |menu|}}
+                <option value="{{menu.id}}">Menu {{menu.id}}</option>
+            {{/each}}
+            {{/with}}
+        {{/each}}
+    </select>
+</div>
+
+<div class="product-checklist">
+    <h3>Select Products to be Added</h3>
+    <ul>
+        <li>
+        {{#each ownerDB as |owner|}}
+            {{#with owner.products as |products|}}
+            {{#each products as |product|}}
+                <input type="checkbox" id="product{{product.id}}" name="product{{product.id}}" value="{{product.name}}">
+                <label for="product{{product.id}}">{{product.name}}</label><br>
+            {{/each}}
+            {{/with}}
+        {{/each}}
+        </li>
+    </ul>
+    <button id="add-prod-button">Add Products to Menu</button>
+</div>
+
+<script src="/javascript/edit-menu.js"></script>
