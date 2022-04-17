@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { Owner } = require('../../models');
 
-// get all users
+// get all owners
 router.get('/', (req, res) => {
-    User.findAll({
+    Owner.findAll({
         attributes: { exclude: ['password'] }
     })
     .then(dbUserData => res.json(dbUserData))
@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    User.create({
+    Owner.create({
         first_name: req.body.first_name,
         last_name: req.body.last_name, 
         username: req.body.username,
@@ -39,13 +39,13 @@ router.post('/', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-    User.findOne({
+    Owner.findOne({
         where: {
             email: req.body.email
         }
     }).then(dbUserData => {
         if (!dbUserData) {
-            res.status(400).json({ message: 'No user with that email address!' });
+            res.status(400).json({ message: 'No owner with that email address!' });
             return;
         }
 
@@ -59,6 +59,7 @@ router.post('/login', (req, res) => {
         req.session.save(() => {
         req.session.user_id = dbUserData.id;
         req.session.username = dbUserData.username;
+        req.session.isOwner = true;
         req.session.loggedIn = true;
 
         res.json({ user: dbUserData, message: 'You are now logged in!' });
@@ -78,7 +79,7 @@ router.post('/logout', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-    User.update(req.body, {
+    Owner.update(req.body, {
         individualHooks: true,
         where: {
             id: req.params.id
@@ -86,7 +87,7 @@ router.put('/:id', (req, res) => {
     })
     .then(dbUserData => {
         if (!dbUserData) {
-            res.status(404).json({ message: 'No user found with this id' });
+            res.status(404).json({ message: 'No owner found with this id' });
             return;
         }
         res.json(dbUserData);
