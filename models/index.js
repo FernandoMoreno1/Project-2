@@ -1,11 +1,11 @@
 // import all models
 const User = require('./User');
-const Restaurant = require('./Restaurant')
-const Image = require('./Image');
-const Category = require('./Category');
 const Order = require('./Order');
 const Product = require('./Product');
 const Owner = require('./Owner');
+const Restaurant = require('./Restaurant')
+const Image = require('./Image');
+const Category = require('./Category');
 
 // create associations
 User.hasMany(Order,{
