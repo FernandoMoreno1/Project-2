@@ -36,4 +36,23 @@ router.post('/', (req, res) => {
     });
 });
 
+router.delete('/:id', (req,res) => {
+    Menu.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(dbMenuData => {
+        if(!dbMenuData) {
+            res.status(404).json({message: 'No menu found with this id'});
+            return;
+        }
+        res.json(dbMenuData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+})
+
 module.exports = router;

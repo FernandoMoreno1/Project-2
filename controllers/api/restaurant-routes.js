@@ -49,4 +49,23 @@ router.put('/:id', (req, res) => {
     });
 });
 
+router.delete('/:id', (req,res) => {
+    Restaurant.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(dbRestaurantData => {
+        if(!dbRestaurantData) {
+            res.status(404).json({message: 'No restaurant found with this id'});
+            return;
+        }
+        res.json(dbRestaurantData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+})
+
 module.exports = router;

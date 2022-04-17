@@ -24,7 +24,7 @@ async function newRestaurantFormHandler(event) {
         });
 
         if (response.ok) {
-            document.location.replace('/');
+            document.location.replace('/restaurants/admin');
         } else {
             alert(response.statusText);
         }

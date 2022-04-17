@@ -18,7 +18,6 @@ async function addProductsHandler(event) {
             'product_id' : element
         })
     });
-    console.log(newProductArray);
 
     if (newProductArray) {
         const response = await fetch('/api/menuproducts', {

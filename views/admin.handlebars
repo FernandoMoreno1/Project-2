@@ -9,7 +9,6 @@
             {{/with}}
         {{/each}}
         <button class='add-button' id="add-restaurants">Add Restaurants</button>
-        <button class='delete-button' id="delete-restaurants">Delete Restaurants</button>
     </div>
 
     <div class="menus-container">
@@ -23,7 +22,6 @@
         {{/each}}
         <button class='add-button' id="add-menus">Add Menus</button>
         <button class='edit-button' id="edit-menus">Edit Menus</button>
-        <button class='delete-button' id="delete-menus">Delete Menus</button>
     </div>
 
     <div class="products-container">
@@ -36,7 +34,37 @@
             {{/with}}
         {{/each}}
         <button class='add-button' id="add-products">Add Products</button>
-        <button class='delete-button' id="delete-products">Delete Products</button>
+    </div>
+
+    <div class="del-container">
+        <h3>Select Item to Delete</h3>
+        <div class="item-dropdown">
+            <label>Select Item to Delete: </label>
+            <select id="select-item" name="item">
+                {{#each ownerDB as |owner|}}
+                    {{#with owner.restaurants as |restaurants|}}
+                    {{#each restaurants as |restaurant|}}
+                        <option value="restaurants{{restaurant.id}}">{{restaurant.name}}</option>
+                    {{/each}}
+                    {{/with}}
+                {{/each}}
+                {{#each ownerDB as |owner|}}
+                    {{#with owner.menus as |menus|}}
+                    {{#each menus as |menu|}}
+                        <option value="menus{{menu.id}}">Menu {{menu.id}}</option>
+                    {{/each}}
+                    {{/with}}
+                {{/each}}
+                {{#each ownerDB as |owner|}}
+                    {{#with owner.products as |products|}}
+                    {{#each products as |product|}}
+                        <option value="products{{product.id}}">{{product.name}}</option>
+                    {{/each}}
+                    {{/with}}
+                {{/each}}
+            </select>
+        </div>
+        <button class='del-button'>Delete Selected Item</button>
     </div>
 </div>
 
