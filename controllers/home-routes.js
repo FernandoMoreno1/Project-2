@@ -44,6 +44,15 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
+router.get('/owner-signup', (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+
+    res.render('owner-signup');
+});
+
 router.get('/update-user', (req, res) => {
     if (!req.session.loggedIn) {
         res.redirect('/');
