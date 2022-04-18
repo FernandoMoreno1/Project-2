@@ -14,7 +14,7 @@ As a restaurant owner, I WANT to know what customers ordered in my restaurant an
 * [live link](https://git.heroku.com/upscale-delivery.git)
 
 ## Presentation
-* [upscale_delivery](https://docs.google.com/presentation/d/1siIjXDHD9MkesPmx23gXTPmRdKCLKRJdBRwK2425b9k/slide=id.p#slide=id.p)
+* [upscale_delivery](https://docs.google.com/presentation/d/1siIjXDHD9MkesPmx23gXTPmRdKCLKRJdBRwK2425b9k/edit?usp=sharing)
 
 
 ## Technologies Used
