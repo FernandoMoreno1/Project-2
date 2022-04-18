@@ -11,7 +11,7 @@ As a restaurant owner, I WANT to know what customers ordered in my restaurant an
 
 ## Image
 ![Untitled 4](https://user-images.githubusercontent.com/95258502/163734585-3c844afa-a385-49cb-b352-4f13225407e1.png)
-* [live link](https://git.heroku.com/upscale-delivery.git)
+* [live link](https://upscale-delivery.herokuapp.com/)
 
 ## Presentation
 * [upscale_delivery](https://docs.google.com/presentation/d/1siIjXDHD9MkesPmx23gXTPmRdKCLKRJdBRwK2425b9k/edit?usp=sharing)
