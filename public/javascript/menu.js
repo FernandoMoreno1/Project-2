@@ -1,3 +1,5 @@
+let checkoutTotal = parseFloat(0);
+
 document.querySelector('section').addEventListener('click', element => {
     const productId = element.target.id;
     if (productId.search('product') > -1) {
@@ -13,6 +15,9 @@ document.querySelector('section').addEventListener('click', element => {
 
         itemPrice = document.createElement('p');
         itemPrice.innerText = parentNode.childNodes[3].innerText;
+        const priceVar = parseFloat(itemPrice.innerText.split('$')[1]);
+        checkoutTotal += priceVar;
+        document.getElementById('total').innerText = 'Price: $' + checkoutTotal.toFixed(2);
 
         itemDiv.appendChild(itemName);
         itemDiv.appendChild(itemPrice);
