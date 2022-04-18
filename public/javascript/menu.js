@@ -1,6 +1,5 @@
 document.querySelector('section').addEventListener('click', element => {
     const productId = element.target.id;
-    console.log(productId);
     if (productId.search('product') > -1) {
         newDiv = document.createElement('div');
         newDiv.classList.add('cartItem');
@@ -8,11 +7,12 @@ document.querySelector('section').addEventListener('click', element => {
         itemDiv = document.createElement('div');
         itemDiv.classList.add('item');
 
+        const parentNode = element.target.parentNode;
         itemName = document.createElement('h4');
-        itemName.innerText = 'Test';
+        itemName.innerText =  parentNode.childNodes[1].innerText;
 
         itemPrice = document.createElement('p');
-        itemPrice.innerText = 'Price: $10';
+        itemPrice.innerText = parentNode.childNodes[3].innerText;
 
         itemDiv.appendChild(itemName);
         itemDiv.appendChild(itemPrice);
