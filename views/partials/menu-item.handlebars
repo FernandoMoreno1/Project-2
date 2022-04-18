@@ -1,0 +1,14 @@
+<div class="card" style="margin:2%; padding:4%;">
+    <h4> {{name}}</h4>
+    <p> Price: ${{price}}</p>
+    <p> {{description}}</p>
+    <div class="row">
+      <button class="btn btn-danger col-sm-6 col-md-2">Add-cart</button>
+    {{!-- /*if user is owner? --}}
+    {{!-- {{#if loggedIn}} --}}
+      <a class="btn btn-primary col-sm-6 col-md-2" href="/menu/edit/{{id}}">Editar </a>
+    {{!-- {{/if}} --}}
+    </div>
+    
+    
+</div>

@@ -1,0 +1,52 @@
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
+
+class Category extends Model {}
+
+//predefined list of categories
+const CATEGORIES = [
+    "pizzas",
+    "hamburgers",
+    "drinks",
+    "ice creams",
+    "tacos",
+    "burritos",
+    "sushi",
+    "desserts",
+    "salads",
+    "chicken",
+    "others"
+  ];
+
+  Category.init(
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true
+      },
+      name:{
+          type: DataTypes.STRING,
+          allowNull: false
+      },
+      description:{
+          type: DataTypes.STRING,
+          allowNull: true
+      },
+      isActive:{
+          type: DataTypes.BOOLEAN,
+          defaultValue:true,
+          allowNull: false
+      }
+    },
+    {
+      sequelize,
+      timestamps: false,
+      freezeTableName: true,
+      underscored: true,
+      modelName: 'category'
+    }
+  );
+  
+  module.exports = Category;
